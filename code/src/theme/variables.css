@@ -1,0 +1,11 @@
+/* For information on how to create your own theme, please see:
+http://ionicframework.com/docs/theming/ */
+.page-content {
+    display: flex;
+    height: 100%;
+}
+
+.center-content {
+    width: 100%;
+    padding: 20px;
+}

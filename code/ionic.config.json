@@ -1,0 +1,7 @@
+{
+  "name": "academy-drive",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

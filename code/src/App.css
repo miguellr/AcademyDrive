@@ -1,0 +1,49 @@
+html,
+body,
+#root,
+ion-app,
+ion-content,
+ion-page {
+    height: 100%;
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+ion-router-outlet {
+    display: block;
+    height: 100%;
+    overflow: auto;
+}
+
+.footer-container {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        display: flex;
+    }
+}
+
+
+.ion-text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.menu-open {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-close {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
