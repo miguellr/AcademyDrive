@@ -13,7 +13,7 @@
     "test.unit": "vitest",
     "lint": "eslint"
   },
-  "homepage": "https://github.com/miguellr/AcademyDrive",
+  "homepage": "https://miguellr.github.io/AcademyDrive",
   "repository": {
     "type": "git",
     "url": "https://github.com/miguellr/AcademyDrive.git"
