@@ -72,18 +72,20 @@ const App: React.FC = () => {
           <IonContent>
             <IonTabs>
               <IonRouterOutlet>
+                <Route path="/AcademyDrive/" render={() => <DriveComponent url={selectedSection?.pdfUrl} />} exact />
                 <Route path="/AcademyDrive/contact" render={() => <DriveComponent url={selectedSection?.formUrl} />} exact />
-                <Route path="/AcademyDrive/info" render={() => <DriveComponent url={selectedSection?.pdfUrl} />} exact />
-                <Redirect from="/" to="/AcademyDrive/info" exact />
+
+                <Redirect from="/" to="/AcademyDrive/" exact />
+                <Redirect from="" to="/AcademyDrive/" exact />
               </IonRouterOutlet>
               <IonTabBar slot="bottom" className='footer-container'>
-                <IonTabButton tab="contact" href="/contact">
-                  <IonIcon aria-hidden="true" />
-                  <IonLabel>Contact</IonLabel>
-                </IonTabButton>
-                <IonTabButton tab="info" href="/info">
+                <IonTabButton tab="info" href="/AcademyDrive/">
                   <IonIcon aria-hidden="true" />
                   <IonLabel>Info</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="contact" href="/AcademyDrive/contact">
+                  <IonIcon aria-hidden="true" />
+                  <IonLabel>Contact</IonLabel>
                 </IonTabButton>
               </IonTabBar>
             </IonTabs>
