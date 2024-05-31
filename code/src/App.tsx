@@ -20,7 +20,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { menuOutline } from 'ionicons/icons';
+import { menuOutline, informationCircleOutline, callOutline } from 'ionicons/icons';
 import Menu from './components/menu/Menu';
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
@@ -39,8 +39,9 @@ import DriveComponent from './pages/DriveComponent';
 setupIonicReact();
 
 const App: React.FC = () => {
-
   const [selectedSection, setSelectedSection] = useState<Sections>(menuData[0]);
+  const [selectedPage, setSelectedPage] = useState<String>("/");
+
 
   useEffect(() => {
     setSelectedSection(menuData[0]);
@@ -48,6 +49,7 @@ const App: React.FC = () => {
 
   const handleSectionSelect = (section: Sections) => {
     setSelectedSection(section);
+    setSelectedPage("/");
   };
 
   return (
@@ -66,7 +68,7 @@ const App: React.FC = () => {
                   <IonIcon icon={menuOutline} />
                 </IonMenuButton>
               </IonButtons>
-              <IonTitle slot="start" className="ion-text-center">Academy Drive</IonTitle>
+              <IonTitle>{selectedSection?.name}</IonTitle>
             </IonToolbar>
           </IonHeader>
           <IonContent>
@@ -74,18 +76,17 @@ const App: React.FC = () => {
               <IonRouterOutlet>
                 <Route path="/AcademyDrive/" render={() => <DriveComponent url={selectedSection?.pdfUrl} />} exact />
                 <Route path="/AcademyDrive/contact" render={() => <DriveComponent url={selectedSection?.formUrl} />} exact />
-
                 <Redirect from="/" to="/AcademyDrive/" exact />
                 <Redirect from="" to="/AcademyDrive/" exact />
               </IonRouterOutlet>
-              <IonTabBar slot="bottom" className='footer-container'>
-                <IonTabButton tab="info" href="/AcademyDrive/">
-                  <IonIcon aria-hidden="true" />
-                  <IonLabel>Info</IonLabel>
+              <IonTabBar slot="bottom" className='footer-container' >
+                <IonTabButton tab="info" href="/AcademyDrive/" selected={selectedPage === "/"} onClick={() => setSelectedPage("/")}>
+                  <IonIcon icon={informationCircleOutline} />
+                  <IonLabel>Información</IonLabel>
                 </IonTabButton>
-                <IonTabButton tab="contact" href="/AcademyDrive/contact">
-                  <IonIcon aria-hidden="true" />
-                  <IonLabel>Contact</IonLabel>
+                <IonTabButton tab="contact" href="/AcademyDrive/contact" selected={selectedPage === "/contact"} onClick={() => setSelectedPage("/contact")}>
+                  <IonIcon icon={callOutline} />
+                  <IonLabel>Contacto</IonLabel>
                 </IonTabButton>
               </IonTabBar>
             </IonTabs>
@@ -95,4 +96,5 @@ const App: React.FC = () => {
     </IonApp>
   );
 };
+
 export default App;

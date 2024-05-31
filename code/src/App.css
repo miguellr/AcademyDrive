@@ -1,3 +1,6 @@
+/* styles.css or App.css */
+
+/* General styles */
 html,
 body,
 #root,
@@ -12,14 +15,16 @@ ion-page {
     display: none;
 }
 
-
 ion-router-outlet {
     display: block;
     height: 100%;
     overflow: auto;
 }
 
+/* Footer styles */
 .footer-container {
+    background-color: var(--ion-color-dark);
+    color: var(--ion-color-light);
     display: none;
 }
 
@@ -29,7 +34,7 @@ ion-router-outlet {
     }
 }
 
-
+/* Header styles */
 .ion-text-center {
     display: flex;
     justify-content: center;
@@ -37,13 +42,29 @@ ion-router-outlet {
     width: 100%;
 }
 
-
-.menu-open {
-    transform: translateX(0);
-    transition: transform 0.3s ease-in-out;
+/* Menu styles */
+.custom-menu {
+    --ion-background-color: var(--ion-color-light);
+    --ion-text-color: var(--ion-color-dark);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.menu-close {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+.custom-menu-item {
+    --background: var(--ion-color-light);
+    --color: var(--ion-color-dark);
+    margin-bottom: 8px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.custom-menu-item:hover {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-light);
+}
+
+.custom-menu-item:active {
+    --background: var(--ion-color-primary-shade);
+    --color: var(--ion-color-light);
 }
