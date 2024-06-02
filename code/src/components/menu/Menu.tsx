@@ -1,25 +1,13 @@
 import React from 'react';
 import { IonList, IonItem, IonLabel, IonIcon, IonListHeader, IonNote, IonMenuToggle } from '@ionic/react';
-import './Menu.css'
-import { callOutline } from 'ionicons/icons';
+import './Menu.css';
+import { logoFacebook, logoTwitter, logoInstagram, callOutline } from 'ionicons/icons';
 
 interface MenuProps {
     onSectionSelect: (section: Sections) => void;
     menuData: Sections[];
 }
 
-// <IonListHeader>Amarelle Academy</IonListHeader>
-// <IonNote>Choose one below to see a demo</IonNote>
-/*
-
-            <IonListHeader slot='bottom'>Redes Sociales
-                <IonItem className="custom-menu-item" lines="none">
-
-                    <a href={"url"} target="_blank" rel="noopener noreferrer">
-                        <IonIcon icon={callOutline} />
-                    </a>
-                </IonItem>
-            </IonListHeader> */
 const Menu: React.FC<MenuProps> = ({ onSectionSelect, menuData }) => {
     return (
         <>
@@ -30,7 +18,6 @@ const Menu: React.FC<MenuProps> = ({ onSectionSelect, menuData }) => {
                         <h4>Amarelle Academy</h4>
                     </IonListHeader>
                     {menuData.map((section, index) => (
-
                         <IonItem
                             key={index}
                             button
@@ -39,9 +26,25 @@ const Menu: React.FC<MenuProps> = ({ onSectionSelect, menuData }) => {
                         >
                             <IonLabel>{section.name}</IonLabel>
                         </IonItem>
-
                     ))}
                 </IonMenuToggle>
+            </IonList>
+            <IonList className="social-media-icons">
+                <IonItem className="custom-menu-item" lines="none">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                        <IonIcon icon={logoFacebook} />
+                    </a>
+                </IonItem>
+                <IonItem className="custom-menu-item" lines="none">
+                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                        <IonIcon icon={logoTwitter} />
+                    </a>
+                </IonItem>
+                <IonItem className="custom-menu-item" lines="none">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                        <IonIcon icon={logoInstagram} />
+                    </a>
+                </IonItem>
             </IonList>
         </>
     );

@@ -1,11 +1,7 @@
-/* Menu.css */
-
 .custom-menu {
     --ion-background-color: var(--ion-color-light);
     --ion-text-color: var(--ion-color-dark);
-    margin-top: 5px;
-    padding: 5px;
-    border-radius: 20px;
+    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
@@ -25,18 +21,20 @@
 .custom-menu-item {
     --background: var(--ion-color-light);
     --color: var(--ion-color-dark);
-    margin-bottom: 10px;
+    margin-top: 5px;
     border-radius: 10px;
     transition: background 0.3s;
     width: 100%;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .custom-menu-item:hover {
-    --background: var(--ion-color-primary);
+    --background: var(--ion-color-primary-shade);
     --color: var(--ion-color-light);
 }
+
 
 .custom-menu-item:active {
     --background: var(--ion-color-primary-shade);
@@ -47,6 +45,11 @@
     margin-right: 10px;
     font-size: 20px;
     color: var(--ion-color-primary);
+}
+
+.custom-menu-item:hover ion-icon {
+    color: var(--ion-color-primary-contrast);
+    /*TODO CHANGE A COLOR ION*/
 }
 
 ion-menu ion-content {
@@ -106,7 +109,6 @@ ion-item .selected ion-icon {
     color: var(--ion-color-primary);
 }
 
-
 ion-note {
     display: inline-block;
     font-size: 16px;
@@ -115,4 +117,22 @@ ion-note {
 
 ion-item.selected {
     --color: var(--ion-color-primary);
+}
+
+.social-media-icons {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+}
+
+.social-media-icons ion-item {
+    --background: transparent;
+}
+
+.social-media-icons a {
+    color: var(--ion-color-primary);
+    font-size: 24px;
+    margin: 0 10px;
 }

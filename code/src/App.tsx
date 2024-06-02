@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import menuData from './menu.json';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, useHistory, useLocation } from 'react-router-dom';
 import {
   IonApp,
   IonButtons,
@@ -38,10 +38,48 @@ import DriveComponent from './pages/DriveComponent';
 
 setupIonicReact();
 
+const MainContent: React.FC<{ selectedSection: Sections; handleSectionSelect: (section: Sections) => void }> = ({ selectedSection, handleSectionSelect }) => {
+  const location = useLocation();
+
+  return (
+    <IonPage id="main-content">
+      <IonHeader collapse="fade">
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonMenuButton autoHide={false}>
+              <IonIcon icon={menuOutline} />
+            </IonMenuButton>
+          </IonButtons>
+          <IonTitle>{selectedSection?.name}</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route path="/AcademyDrive/" render={() => <DriveComponent url={selectedSection?.pdfUrl} />} exact />
+            <Route path="/AcademyDrive/contact" render={() => <DriveComponent url={selectedSection?.formUrl} />} exact />
+            <Redirect from="/" to="/AcademyDrive/" exact />
+            <Redirect from="" to="/AcademyDrive/" exact />
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom" className='footer-container'>
+            <IonTabButton tab="info" href="/AcademyDrive/" selected={location.pathname === "/AcademyDrive/"}>
+              <IonIcon icon={informationCircleOutline} />
+              <IonLabel>Información</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="contact" href="/AcademyDrive/contact" selected={location.pathname === "/AcademyDrive/contact"}>
+              <IonIcon icon={callOutline} />
+              <IonLabel>Contacto</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
+      </IonContent>
+    </IonPage>
+  );
+};
+
 const App: React.FC = () => {
   const [selectedSection, setSelectedSection] = useState<Sections>(menuData[0]);
-  const [selectedPage, setSelectedPage] = useState<String>("/");
-
+  const history = useHistory();
 
   useEffect(() => {
     setSelectedSection(menuData[0]);
@@ -49,7 +87,7 @@ const App: React.FC = () => {
 
   const handleSectionSelect = (section: Sections) => {
     setSelectedSection(section);
-    setSelectedPage("/");
+    history.push("/AcademyDrive/");
   };
 
   return (
@@ -60,38 +98,7 @@ const App: React.FC = () => {
             <Menu menuData={menuData} onSectionSelect={handleSectionSelect} />
           </IonContent>
         </IonMenu>
-        <IonPage id="main-content">
-          <IonHeader collapse="fade">
-            <IonToolbar>
-              <IonButtons slot="start">
-                <IonMenuButton autoHide={false}>
-                  <IonIcon icon={menuOutline} />
-                </IonMenuButton>
-              </IonButtons>
-              <IonTitle>{selectedSection?.name}</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-          <IonContent>
-            <IonTabs>
-              <IonRouterOutlet>
-                <Route path="/AcademyDrive/" render={() => <DriveComponent url={selectedSection?.pdfUrl} />} exact />
-                <Route path="/AcademyDrive/contact" render={() => <DriveComponent url={selectedSection?.formUrl} />} exact />
-                <Redirect from="/" to="/AcademyDrive/" exact />
-                <Redirect from="" to="/AcademyDrive/" exact />
-              </IonRouterOutlet>
-              <IonTabBar slot="bottom" className='footer-container' >
-                <IonTabButton tab="info" href="/AcademyDrive/" selected={selectedPage === "/"} onClick={() => setSelectedPage("/")}>
-                  <IonIcon icon={informationCircleOutline} />
-                  <IonLabel>Información</IonLabel>
-                </IonTabButton>
-                <IonTabButton tab="contact" href="/AcademyDrive/contact" selected={selectedPage === "/contact"} onClick={() => setSelectedPage("/contact")}>
-                  <IonIcon icon={callOutline} />
-                  <IonLabel>Contacto</IonLabel>
-                </IonTabButton>
-              </IonTabBar>
-            </IonTabs>
-          </IonContent>
-        </IonPage>
+        <MainContent selectedSection={selectedSection} handleSectionSelect={handleSectionSelect} />
       </IonReactRouter>
     </IonApp>
   );

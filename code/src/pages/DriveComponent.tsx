@@ -9,9 +9,6 @@ const DriveComponent: React.FC<DriveComponentProps> = ({ url }) => {
 
     const [loading, setLoading] = useState(true);
 
-    const handleIframeLoad = () => {
-
-    };
 
     return (
         <>
