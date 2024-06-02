@@ -20,7 +20,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { menuOutline, informationCircleOutline, callOutline } from 'ionicons/icons';
+import { menuOutline, informationCircleOutline, callOutline, informationCircleSharp, createSharp, createOutline, homeOutline, videocamOffOutline } from 'ionicons/icons';
 import Menu from './components/menu/Menu';
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
@@ -37,6 +37,10 @@ import './theme/variables.css';
 import DriveComponent from './pages/DriveComponent';
 
 setupIonicReact();
+
+
+const INDEX_CAMPUS = 0;
+
 
 const MainContent: React.FC<{ selectedSection: Sections; handleSectionSelect: (section: Sections) => void }> = ({ selectedSection, handleSectionSelect }) => {
   const location = useLocation();
@@ -56,20 +60,33 @@ const MainContent: React.FC<{ selectedSection: Sections; handleSectionSelect: (s
       <IonContent>
         <IonTabs>
           <IonRouterOutlet>
-            <Route path="/AcademyDrive/" render={() => <DriveComponent url={selectedSection?.pdfUrl} />} exact />
+            <Route path="/AcademyDrive/" render={() => <DriveComponent url={selectedSection?.indexUrl} />} exact />
+            <Route path="/AcademyDrive/cartel" render={() => <DriveComponent url={selectedSection?.indexUrl} />} exact />
+            <Route path="/AcademyDrive/dossier" render={() => <DriveComponent url={selectedSection?.pdfUrl} />} exact />
             <Route path="/AcademyDrive/contact" render={() => <DriveComponent url={selectedSection?.formUrl} />} exact />
+            <Route path="/AcademyDrive/video" render={() => <DriveComponent url={selectedSection?.videoUrl} />} exact />
             <Redirect from="/" to="/AcademyDrive/" exact />
             <Redirect from="" to="/AcademyDrive/" exact />
           </IonRouterOutlet>
-          <IonTabBar slot="bottom" className='footer-container'>
-            <IonTabButton tab="info" href="/AcademyDrive/" selected={location.pathname === "/AcademyDrive/"}>
+          <IonTabBar slot="bottom" className='footer-container'>+
+            <IonTabButton tab="cartel" href="/AcademyDrive/" selected={location.pathname === "/AcademyDrive/"}>
+              <IonIcon icon={homeOutline} />
+              <IonLabel>Cartel</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="info" href="/AcademyDrive/dossier" selected={location.pathname === "/AcademyDrive/dossier"}>
               <IonIcon icon={informationCircleOutline} />
               <IonLabel>Información</IonLabel>
             </IonTabButton>
             <IonTabButton tab="contact" href="/AcademyDrive/contact" selected={location.pathname === "/AcademyDrive/contact"}>
-              <IonIcon icon={callOutline} />
-              <IonLabel>Contacto</IonLabel>
+              <IonIcon icon={createOutline} />
+              <IonLabel>Inscripción</IonLabel>
             </IonTabButton>
+            {selectedSection.index === INDEX_CAMPUS && (
+              <IonTabButton tab="video" href="/AcademyDrive/video" selected={location.pathname === "/AcademyDrive/video"}>
+                <IonIcon icon={videocamOffOutline} />
+                <IonLabel>Video</IonLabel>
+              </IonTabButton>
+            )}
           </IonTabBar>
         </IonTabs>
       </IonContent>
@@ -79,7 +96,6 @@ const MainContent: React.FC<{ selectedSection: Sections; handleSectionSelect: (s
 
 const App: React.FC = () => {
   const [selectedSection, setSelectedSection] = useState<Sections>(menuData[0]);
-  const history = useHistory();
 
   useEffect(() => {
     setSelectedSection(menuData[0]);
@@ -87,7 +103,6 @@ const App: React.FC = () => {
 
   const handleSectionSelect = (section: Sections) => {
     setSelectedSection(section);
-    history.push("/AcademyDrive/");
   };
 
   return (

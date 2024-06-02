@@ -1,17 +1,58 @@
 [
     {
+        "index": 0,
         "name": "CAMPUS FUTBOL PLAYA",
+        "indexUrl": "https://drive.google.com/file/d/1takh2MjXWVcDsfD3IZVo6L9Pacb7rQJV/preview",
         "formUrl": "https://docs.google.com/forms/d/1_qBwcg0PahvK9SWt73r6h6Dnv0IV8L2AyChV1SS6Ktc/viewform?usp=sharing",
-        "pdfUrl": "https://drive.google.com/file/d/1yk3S3DhJ56djPLJEJH1rm5BgqajWTpJb/preview"
+        "pdfUrl": "https://drive.google.com/file/d/1yk3S3DhJ56djPLJEJH1rm5BgqajWTpJb/preview",
+        "videoUrl": "https://www.youtube.com/embed/Gsn6gUpO_xw"
     },
     {
+        "index": 0,
+        "name": "CAMPUS FUTBOL PLAYA",
+        "indexUrl": "https://drive.google.com/file/d/1takh2MjXWVcDsfD3IZVo6L9Pacb7rQJV/preview",
+        "formUrl": "https://docs.google.com/forms/d/1_qBwcg0PahvK9SWt73r6h6Dnv0IV8L2AyChV1SS6Ktc/viewform?usp=sharing",
+        "pdfUrl": "https://drive.google.com/file/d/1yk3S3DhJ56djPLJEJH1rm5BgqajWTpJb/preview",
+        "videoUrl": "https://www.youtube.com/embed/Gsn6gUpO_xw"
+    },
+    {
+        "index": 1,
         "name": "ACADEMY VERANO",
+        "indexUrl": "https://drive.google.com/file/d/1dvkneyEZdoS4xh5r8FQKZJCHj9yvOWJQ/preview",
         "formUrl": "https://docs.google.com/forms/d/1Km4ReJa9bqSeZgkaDOg2-3CJHKTghgyHvDjsyb32y8w/viewform?usp=sharing",
-        "pdfUrl": "https://drive.google.com/file/d/1woDCD-Om_x6XvvwgG5wmS4LfjChBa5Uy/preview"
+        "pdfUrl": "https://drive.google.com/file/d/1woDCD-Om_x6XvvwgG5wmS4LfjChBa5Uy/preview",
+        "videoUrl": ""
     },
     {
+        "index": 2,
+        "name": "INTERNATIONAL SOCCER CAMP",
+        "indexUrl": "https://drive.google.com/file/d/1XU3TqGISMABuMFNcK2hKMDwuQ4IpPyYa/preview",
+        "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdtKYwyR9BX95d63V2EFDfEA-nptIZCLHWSPKWylu5wifA8Bw/viewform?usp=sharing",
+        "pdfUrl": "",
+        "videoUrl": ""
+    },
+    {
+        "index": 3,
+        "name": "JORNADA PUERTAS ABIERTAS",
+        "indexUrl": "https://drive.google.com/file/d/17Zjnu0RXkefxWmQTBrosYt6WFCzCrtLY/preview",
+        "formUrl": "",
+        "pdfUrl": "",
+        "videoUrl": ""
+    },
+    {
+        "index": 4,
         "name": "ACADEMY FEMENINO",
-        "formUrl": "https://docs.google.com/forms/d/1c7Wy6fmMyWo3iyiT8ITThqPDdErvUW1PY_z-zkDw2XM/viewform?usp=sharing",
-        "pdfUrl": "https://drive.google.com/file/d/1QOZeXj2QVa8Da0cQee9AVwTvtMcQSsQV/preview"
+        "indexUrl": "https://drive.google.com/file/d/1QOZeXj2QVa8Da0cQee9AVwTvtMcQSsQV/preview",
+        "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfPTKsHvSCzrHvPMbPYYKabdqF2oNfTKxPrMT11_GZCNwS64A/viewform?usp=sharing",
+        "pdfUrl": "https://drive.google.com/file/d/1QOZeXj2QVa8Da0cQee9AVwTvtMcQSsQV/preview",
+        "videoUrl": ""
+    },
+    {
+        "index": 5,
+        "name": "AMARELLE SABON-LEAGUE",
+        "indexUrl": "https://drive.google.com/file/d/1-zMyA4YGbflFILSaGGN7Qc2fZcWDyCwC/preview",
+        "formUrl": "https://drive.google.com/file/d/1EoC7j3eVwzP_TyU-jCrzJcPpBQROmTDa/viewform?usp=sharing",
+        "pdfUrl": "",
+        "videoUrl": ""
     }
 ]

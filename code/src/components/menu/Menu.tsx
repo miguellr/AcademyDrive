@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IonList, IonItem, IonLabel, IonIcon, IonListHeader, IonNote, IonMenuToggle } from '@ionic/react';
 import './Menu.css';
-import { logoFacebook, logoTwitter, logoInstagram, callOutline, logoYoutube } from 'ionicons/icons';
+import { logoFacebook, logoTwitter, logoInstagram, callOutline, logoYoutube, logoWhatsapp } from 'ionicons/icons';
+import { useHistory } from 'react-router';
 
 interface MenuProps {
     onSectionSelect: (section: Sections) => void;
     menuData: Sections[];
 }
 
+
 const Menu: React.FC<MenuProps> = ({ onSectionSelect, menuData }) => {
+    const [selectedSection, setSelectedSection] = useState<Sections>(menuData[0]);
+    const history = useHistory();
+
+    const handleSectionSelect = (section: Sections) => {
+        history.push("/AcademyDrive/");
+        onSectionSelect(section)
+        setSelectedSection(section);
+    };
+
     return (
         <>
             <IonList className="custom-menu">
@@ -21,8 +32,8 @@ const Menu: React.FC<MenuProps> = ({ onSectionSelect, menuData }) => {
                         <IonItem
                             key={index}
                             button
-                            onClick={() => onSectionSelect(section)}
-                            className="custom-menu-item"
+                            onClick={() => handleSectionSelect(section)}
+                            className={"custom-menu-item " + (selectedSection.name === section.name ? 'item-selected' : '')}
                         >
                             <IonLabel>{section.name}</IonLabel>
                         </IonItem>
@@ -30,26 +41,26 @@ const Menu: React.FC<MenuProps> = ({ onSectionSelect, menuData }) => {
                 </IonMenuToggle>
             </IonList>
             <IonList className="social-media-icons">
-                <IonItem className="custom-menu-item" lines="none">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                        <IonIcon icon={logoFacebook} />
-                    </a>
-                </IonItem>
-                <IonItem className="custom-menu-item" lines="none">
-                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                <a href=" https://wa.me/692395562?text=TextodePrueba" target="_blank" rel="noopener noreferrer">
+                    <IonItem className="custom-menu-item" lines="none">
+                        <IonIcon icon={logoWhatsapp} />
+                    </IonItem>
+                </a>
+                <a href="https://x.com/AmarelleAcademy" target="_blank" rel="noopener noreferrer">
+                    <IonItem className="custom-menu-item" lines="none">
                         <IonIcon icon={logoTwitter} />
-                    </a>
-                </IonItem>
-                <IonItem className="custom-menu-item" lines="none">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                    </IonItem>
+                </a>
+                <a href="https://www.instagram.com/amarelleacademy/" target="_blank" rel="noopener noreferrer">
+                    <IonItem className="custom-menu-item" lines="none">
                         <IonIcon icon={logoInstagram} />
-                    </a>
-                </IonItem>
-                <IonItem className="custom-menu-item" lines="none">
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                    </IonItem>
+                </a>
+                <a href="https://www.youtube.com/@AmarelleAcademy/featured" target="_blank" rel="noopener noreferrer">
+                    <IonItem className="custom-menu-item" lines="none">
                         <IonIcon icon={logoYoutube} />
-                    </a>
-                </IonItem>
+                    </IonItem>
+                </a>
             </IonList>
         </>
     );

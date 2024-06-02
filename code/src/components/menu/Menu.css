@@ -30,6 +30,12 @@
     cursor: pointer;
 }
 
+
+.item-selected {
+    --background: var(--ion-color-primary-shade);
+    --color: var(--ion-color-light);
+}
+
 .custom-menu-item:hover {
     --background: var(--ion-color-primary-shade);
     --color: var(--ion-color-light);
