@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonList, IonItem, IonLabel, IonIcon, IonListHeader, IonNote, IonMenuToggle } from '@ionic/react';
 import './Menu.css';
-import { logoFacebook, logoTwitter, logoInstagram, callOutline } from 'ionicons/icons';
+import { logoFacebook, logoTwitter, logoInstagram, callOutline, logoYoutube } from 'ionicons/icons';
 
 interface MenuProps {
     onSectionSelect: (section: Sections) => void;
@@ -43,6 +43,11 @@ const Menu: React.FC<MenuProps> = ({ onSectionSelect, menuData }) => {
                 <IonItem className="custom-menu-item" lines="none">
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
                         <IonIcon icon={logoInstagram} />
+                    </a>
+                </IonItem>
+                <IonItem className="custom-menu-item" lines="none">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                        <IonIcon icon={logoYoutube} />
                     </a>
                 </IonItem>
             </IonList>

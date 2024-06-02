@@ -94,7 +94,7 @@ const App: React.FC = () => {
     <IonApp>
       <IonReactRouter>
         <IonMenu side="start" contentId="main-content">
-          <IonContent className="ion-padding">
+          <IonContent>
             <Menu menuData={menuData} onSectionSelect={handleSectionSelect} />
           </IonContent>
         </IonMenu>

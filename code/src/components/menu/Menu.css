@@ -14,7 +14,7 @@
 
 .custom-menu-header {
     margin: 0 auto;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     font-weight: bold;
 }
 
@@ -22,7 +22,7 @@
     --background: var(--ion-color-light);
     --color: var(--ion-color-dark);
     margin-top: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: background 0.3s;
     width: 100%;
     display: flex;
@@ -125,6 +125,7 @@ ion-item.selected {
     padding: 10px 0;
     position: fixed;
     bottom: 0;
+    width: 100%;
 }
 
 .social-media-icons ion-item {
@@ -134,5 +135,6 @@ ion-item.selected {
 .social-media-icons a {
     color: var(--ion-color-primary);
     font-size: 24px;
-    margin: 0 10px;
+    justify-content: center;
+    margin: 0 auto;
 }
