@@ -65,10 +65,17 @@ const MainContent: React.FC<{ selectedSection: Sections; handleSectionSelect: (s
             <Route path="/AcademyDrive/dossier" render={() => <DriveComponent url={selectedSection?.pdfUrl} />} exact />
             <Route path="/AcademyDrive/contact" render={() => <DriveComponent url={selectedSection?.formUrl} />} exact />
             <Route path="/AcademyDrive/video" render={() => <DriveComponent url={selectedSection?.videoUrl} />} exact />
+            <Route path="/AcademyDrive/prueba" render={() => <DriveComponent url={selectedSection?.videoUrl} />} exact />
             <Redirect from="/" to="/AcademyDrive/" exact />
             <Redirect from="" to="/AcademyDrive/" exact />
           </IonRouterOutlet>
-          <IonTabBar slot="bottom" className='footer-container'>+
+          {
+            // por si lees esto 
+            // si a slot no se le pasa nada, no muestra el IonTabBar. Ejemplo:
+            // slot={location.pathname === "/AcademyDrive/gallery" ? undefined : 'bottom'}
+            // si la ruta es /AcademyDrive/gallery no se muestra la barra de abajo
+          }
+          <IonTabBar slot={location.pathname === "/AcademyDrive/prueba" ? undefined : 'bottom'} className='footer-container'>+
             <IonTabButton tab="cartel" href="/AcademyDrive/" selected={location.pathname === "/AcademyDrive/"}>
               <IonIcon icon={homeOutline} />
               <IonLabel>Cartel</IonLabel>
