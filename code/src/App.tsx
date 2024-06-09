@@ -20,7 +20,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { menuOutline, informationCircleOutline, callOutline, informationCircleSharp, createSharp, createOutline, homeOutline, videocamOffOutline } from 'ionicons/icons';
+import { menuOutline, informationCircleOutline, callOutline, informationCircleSharp, createSharp, createOutline, homeOutline, videocamOffOutline, image } from 'ionicons/icons';
 import Menu from './components/menu/Menu';
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
@@ -35,15 +35,32 @@ import '@ionic/react/css/display.css';
 import '@ionic/react/css/palettes/dark.system.css';
 import './theme/variables.css';
 import DriveComponent from './pages/DriveComponent';
-
+import GalleryComponent from './pages/Gallerycomponent';
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 setupIonicReact();
 
 
 const INDEX_CAMPUS = 0;
-
+const INDEX_GALLERY = 6;
 
 const MainContent: React.FC<{ selectedSection: Sections; handleSectionSelect: (section: Sections) => void }> = ({ selectedSection, handleSectionSelect }) => {
   const location = useLocation();
+  const [open, setOpen] = useState(false);
+  const history = useHistory();
+
+  const images = [
+    { src: "https://mediaplus.quincemil.com/imagen4_3/78/780465.jpg", width: 1920, height: 1080 },
+    { src: "https://huelvabuenasnoticias.com/wp-content/uploads/2013/07/DEPORTES-CAMPUS-RAMIRO-AMARELLE-FOTO-FAMLIA.jpg", width: 1920, height: 1080 },
+    { src: "https://pbs.twimg.com/media/GIzIdQLWIAA1Ex6?format=jpg&name=large", width: 1920, height: 1080 },
+  ];
+
+  // con esto se intenta mostrar la galería con el botón del menú de la izq, pero no hace caso...
+  useEffect(() => {
+    if (selectedSection.index === INDEX_GALLERY) {
+      setOpen(true);
+    }
+  }, []);
 
   return (
     <IonPage id="main-content">
@@ -88,6 +105,10 @@ const MainContent: React.FC<{ selectedSection: Sections; handleSectionSelect: (s
               <IonIcon icon={createOutline} />
               <IonLabel>Inscripción</IonLabel>
             </IonTabButton>
+            <IonTabButton tab="contact" onClick={() => setOpen(true)}>
+              <IonIcon icon={image} />
+              <IonLabel>Galería</IonLabel>
+            </IonTabButton>
             {selectedSection.index === INDEX_CAMPUS && (
               <IonTabButton tab="video" href="/AcademyDrive/video" selected={location.pathname === "/AcademyDrive/video"}>
                 <IonIcon icon={videocamOffOutline} />
@@ -97,6 +118,11 @@ const MainContent: React.FC<{ selectedSection: Sections; handleSectionSelect: (s
           </IonTabBar>
         </IonTabs>
       </IonContent>
+
+      <Lightbox
+        open={open}
+        slides={images}
+      />
     </IonPage>
   );
 };
