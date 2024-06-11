@@ -22,7 +22,7 @@ const VideoCarousel = () => {
 
     return (
         <div className='carrousel-academy'>
-            {/*<Carousel
+            <Carousel
                 showThumbs={true}
                 showArrows={true}
                 infiniteLoop
@@ -41,20 +41,8 @@ const VideoCarousel = () => {
                         <img src={image.image} alt={`slide ${index}`} />
                     </div>
                 ))}
-            </Carousel>*/}
-            <Lightbox
-                slides={[
-                    {
-                        src: "",
-                        alt: "image 1",
-                        width: 800,
-                        height: 600,
-                        srcSet: [
-                            { src: "https://huelvabuenasnoticias.com/wp-content/uploads/2013/07/DEPORTES-CAMPUS-RAMIRO-AMARELLE-FOTO-FAMLIA.jpg", width: 320, height: 213 },
-                        ],
-                    },
-                ]}
-            />
+            </Carousel>
+
         </div>
     );
 };
