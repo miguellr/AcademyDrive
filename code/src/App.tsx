@@ -115,7 +115,7 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <IonMenu side="start" contentId="main-content">
+        <IonMenu swipeGesture={true} side="start" contentId="main-content">
           <IonContent>
             <Menu menuData={menuData} onSectionSelect={handleSectionSelect} />
           </IonContent>

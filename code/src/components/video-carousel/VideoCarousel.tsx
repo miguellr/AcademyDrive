@@ -1,49 +1,77 @@
 import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./VideoCarousel.css";
-import Lightbox from 'yet-another-react-lightbox';
+import images from "./carousel.json";
+
+// Asegúrate de tener los archivos SVG en tu proyecto o utiliza URLs
+import leftArrow from '../../../public/icons/left-arrow.svg';
+import rightArrow from '../../../public/icons/right-arrow.svg';
 
 const VideoCarousel = () => {
-    const images = [
-        {
-            thumbnail: "https://pbs.twimg.com/media/GIzIdQLWIAA1Ex6?format=jpg&name=large",
-            image: "https://mediaplus.quincemil.com/imagen4_3/78/780465.jpg"
-        },
-        {
-            thumbnail: "https://pbs.twimg.com/media/GIzIdQLWIAA1Ex6?format=jpg&name=large",
-            image: "https://huelvabuenasnoticias.com/wp-content/uploads/2013/07/DEPORTES-CAMPUS-RAMIRO-AMARELLE-FOTO-FAMLIA.jpg"
-        },
-        {
-            thumbnail: "https://pbs.twimg.com/media/GIzIdQLWIAA1Ex6?format=jpg&name=large",
-            image: "https://pbs.twimg.com/media/GIzIdQLWIAA1Ex6?format=jpg&name=large"
-        }
-    ];
+
+
+    const NextArrow = (props) => {
+        const { className, style, onClick } = props;
+        return (
+            <div className={className} style={{ ...style, display: "block", content: 'none' }} onClick={onClick}>
+                <img src={rightArrow} alt="Next" />
+            </div>
+        );
+    };
+
+    const PrevArrow = (props) => {
+        const { className, style, onClick } = props;
+        return (
+            <div className={className} style={{ ...style, display: "block" }} onClick={onClick}>
+                <img src={leftArrow} alt="Prev" />
+            </div>
+        );
+    };
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false
+                }
+            }
+        ],
+        dotsClass: "slick-dots custom-dots"
+    };
 
     return (
-        <div className='carrousel-academy'>
-            <Carousel
-                showThumbs={true}
-                showArrows={true}
-                infiniteLoop
-                useKeyboardArrows
-                dynamicHeight
-                renderThumbs={() =>
-                    images.map(image =>
-                        <div className='thumbnail-carousel'>
-                            <img src={image.thumbnail} alt="video thumbnail" />
-                        </div>
-                    )
-                }
-            >
-                {images.map((image, index) => (
-                    <div className="image-container" key={index}>
-                        <img src={image.image} alt={`slide ${index}`} />
-                    </div>
-                ))}
-            </Carousel>
-
-        </div>
+        <Slider {...settings}>
+            {images.map((image, index) => (
+                <div className="image-container" key={index}>
+                    <img src={image.image} alt={`slide ${index}`} />
+                </div>
+            ))}
+        </Slider>
     );
 };
 
