@@ -65,7 +65,7 @@ const VideoCarousel = () => {
     };
 
     return (
-        <Slider {...settings}>
+        <Slider className="slider-container" {...settings}>
             {images.map((image, index) => (
                 <div className="image-container" key={index}>
                     <img src={image.image} alt={`slide ${index}`} />

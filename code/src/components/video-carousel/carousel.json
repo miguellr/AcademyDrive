@@ -1,26 +1,26 @@
 [
     {
-        "thumbnail": "https://pbs.twimg.com/media/GIzIdQLWIAA1Ex6?format=jpg&name=large",
-        "image": "https://mediaplus.quincemil.com/imagen4_3/78/780465.jpg"
+        "image": "./public/gallery/1.jpeg"
     },
     {
-        "thumbnail": "https://pbs.twimg.com/media/GIzIdQLWIAA1Ex6?format=jpg&name=large",
-        "image": "https://huelvabuenasnoticias.com/wp-content/uploads/2013/07/DEPORTES-CAMPUS-RAMIRO-AMARELLE-FOTO-FAMLIA.jpg"
+        "image": "./public/gallery/2.jpeg"
     },
     {
-        "thumbnail": "https://mediaplus.quincemil.com/imagen4_3/78/780465.jpg",
-        "image": "https://pbs.twimg.com/media/GIzIdQLWIAA1Ex6?format=jpg&name=large"
+        "image": "./public/gallery/3.jpeg"
     },
     {
-        "thumbnail": "https://mediaplus.quincemil.com/imagen4_3/78/780465.jpg",
-        "image": "https://pbs.twimg.com/media/GIzIdQLWIAA1Ex6?format=jpg&name=large"
+        "image": "./public/gallery/4.jpeg"
     },
     {
-        "thumbnail": "https://mediaplus.quincemil.com/imagen4_3/78/780465.jpg",
-        "image": "https://pbs.twimg.com/media/GIzIdQLWIAA1Ex6?format=jpg&name=large"
+        "image": "./public/gallery/5.jpeg"
     },
     {
-        "thumbnail": "https://mediaplus.quincemil.com/imagen4_3/78/780465.jpg",
-        "image": "https://pbs.twimg.com/media/GIzIdQLWIAA1Ex6?format=jpg&name=large"
+        "image": "./public/gallery/6.jpeg"
+    },
+    {
+        "image": "./public/gallery/7.jpeg"
+    },
+    {
+        "image": "./public/gallery/8.jpeg"
     }
 ]

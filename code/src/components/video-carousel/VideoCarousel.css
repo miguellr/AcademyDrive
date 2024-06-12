@@ -1,9 +1,12 @@
+.slider-container {
+    margin-top: 20px;
+}
+
 .image-container {
     margin-top: 10px;
     display: flex !important;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .image-container img {
@@ -12,6 +15,7 @@
     max-height: 75vh;
     object-fit: cover;
     border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .thumbnail-carousel {
@@ -45,11 +49,11 @@
     text-align: center;
 }
 
-.slick-arrows {
+.slick-arrow {
     opacity: 0.75;
 }
 
-.slick-arrows:hover {
+.slick-arrow:hover {
     opacity: 1;
 }
 
