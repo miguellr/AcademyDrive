@@ -46,5 +46,13 @@
         "formUrl": "https://drive.google.com/file/d/1EoC7j3eVwzP_TyU-jCrzJcPpBQROmTDa/viewform?usp=sharing",
         "pdfUrl": "",
         "videoUrl": ""
+    },
+    {
+        "index": 6,
+        "name": "GALERÍA",
+        "indexUrl": "",
+        "formUrl": "",
+        "pdfUrl": "",
+        "videoUrl": ""
     }
 ]

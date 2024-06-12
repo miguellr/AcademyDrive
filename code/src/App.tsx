@@ -35,11 +35,13 @@ import '@ionic/react/css/display.css';
 import '@ionic/react/css/palettes/dark.system.css';
 import './theme/variables.css';
 import DriveComponent from './pages/DriveComponent';
+import VideoCarousel from './components/video-carousel/VideoCarousel';
 
 setupIonicReact();
 
 
 const INDEX_CAMPUS = 0;
+const INDEX_GALLERY = 6;
 
 
 const MainContent: React.FC<{ selectedSection: Sections; handleSectionSelect: (section: Sections) => void }> = ({ selectedSection, handleSectionSelect }) => {
@@ -60,7 +62,11 @@ const MainContent: React.FC<{ selectedSection: Sections; handleSectionSelect: (s
       <IonContent>
         <IonTabs>
           <IonRouterOutlet>
-            <Route path="/AcademyDrive/" render={() => <DriveComponent url={selectedSection?.indexUrl} />} exact />
+            {selectedSection.index !== INDEX_GALLERY ? (
+              <Route path="/AcademyDrive/" render={() => <DriveComponent url={selectedSection?.indexUrl} />} exact />
+            ) : (
+              <Route path="/AcademyDrive/" render={() => <VideoCarousel />} exact />
+            )}
             <Route path="/AcademyDrive/cartel" render={() => <DriveComponent url={selectedSection?.indexUrl} />} exact />
             <Route path="/AcademyDrive/dossier" render={() => <DriveComponent url={selectedSection?.pdfUrl} />} exact />
             <Route path="/AcademyDrive/contact" render={() => <DriveComponent url={selectedSection?.formUrl} />} exact />
@@ -69,13 +75,7 @@ const MainContent: React.FC<{ selectedSection: Sections; handleSectionSelect: (s
             <Redirect from="/" to="/AcademyDrive/" exact />
             <Redirect from="" to="/AcademyDrive/" exact />
           </IonRouterOutlet>
-          {
-            // por si lees esto 
-            // si a slot no se le pasa nada, no muestra el IonTabBar. Ejemplo:
-            // slot={location.pathname === "/AcademyDrive/gallery" ? undefined : 'bottom'}
-            // si la ruta es /AcademyDrive/gallery no se muestra la barra de abajo
-          }
-          <IonTabBar slot={location.pathname === "/AcademyDrive/prueba" ? undefined : 'bottom'} className='footer-container'>+
+          <IonTabBar slot={selectedSection.index === INDEX_GALLERY ? undefined : 'bottom'} className='footer-container'>
             <IonTabButton tab="cartel" href="/AcademyDrive/" selected={location.pathname === "/AcademyDrive/"}>
               <IonIcon icon={homeOutline} />
               <IonLabel>Cartel</IonLabel>
@@ -115,7 +115,7 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <IonMenu side="start" contentId="main-content">
+        <IonMenu swipeGesture={true} side="start" contentId="main-content">
           <IonContent>
             <Menu menuData={menuData} onSectionSelect={handleSectionSelect} />
           </IonContent>
